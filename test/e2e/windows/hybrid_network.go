@@ -84,8 +84,8 @@ var _ = sigDescribe("Hybrid cluster network", skipUnlessWindows(func() {
 
 			ginkgo.By("verifying pod external connectivity to the internet")
 
-			ginkgo.By("checking connectivity to 8.8.8.8 53 (google.com) from Linux")
-			assertConsistentConnectivity(ctx, f, linuxPod.ObjectMeta.Name, linuxOS, linuxCheck("8.8.8.8", 53), externalMaxTries)
+			ginkgo.By("checking connectivity to 8.8.8.8 853 (google.com) from Linux")
+			assertConsistentConnectivity(ctx, f, linuxPod.ObjectMeta.Name, linuxOS, linuxCheck("8.8.8.8", 853), externalMaxTries)
 		})
 
 		f.It("should provide Internet connection for Windows containers using DNS", feature.NetworkingDNS, func(ctx context.Context) {
@@ -95,8 +95,8 @@ var _ = sigDescribe("Hybrid cluster network", skipUnlessWindows(func() {
 
 			ginkgo.By("verifying pod external connectivity to the internet")
 
-			ginkgo.By("checking connectivity to 8.8.8.8 53 (google.com) from Windows")
-			assertConsistentConnectivity(ctx, f, windowsPod.ObjectMeta.Name, windowsOS, windowsCheck("www.google.com"), externalMaxTries)
+			ginkgo.By("checking connectivity to 8.8.8.8 853 (google.com) from Windows")
+			assertConsistentConnectivity(ctx, f, windowsPod.ObjectMeta.Name, windowsOS, windowsCheck("https://www.google.com"), externalMaxTries)
 		})
 
 	})

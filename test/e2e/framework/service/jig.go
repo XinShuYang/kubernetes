@@ -1011,7 +1011,7 @@ func (j *TestJig) checkExternalServiceReachability(ctx context.Context, svc *v1.
 		// NOTE(claudiub): nslookup may return 0 on Windows, even though the DNS name was not found. In this case,
 		// we can check stderr for the error.
 		if err != nil || (framework.NodeOSDistroIs("windows") && strings.Contains(stderr, fmt.Sprintf("can't find %s", svcName))) {
-			framework.Logf("ExternalName service %q failed to resolve to IP", pod.Namespace+"/"+pod.Name)
+			framework.Logf("ExternalName service %q failed to resolve to IP: %v", pod.Namespace+"/"+pod.Name, err)
 			return false, nil
 		}
 		return true, nil

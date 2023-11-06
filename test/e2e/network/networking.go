@@ -88,7 +88,7 @@ var _ = common.SIGDescribe("Networking", func() {
 	f.It("should provide Internet connection for containers", feature.NetworkingIPv4, func(ctx context.Context) {
 		ginkgo.By("Running container which tries to connect to 8.8.8.8")
 		framework.ExpectNoError(
-			checkConnectivityToHost(ctx, f, "", "connectivity-test", "8.8.8.8", 53, 30))
+			checkConnectivityToHost(ctx, f, "", "connectivity-test", "8.8.8.8", 853, 30))
 	})
 
 	f.It("should provide Internet connection for containers", feature.NetworkingIPv6, "[Experimental][LinuxOnly]", func(ctx context.Context) {

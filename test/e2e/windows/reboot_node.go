@@ -111,8 +111,8 @@ var _ = sigDescribe(feature.Windows, "[Excluded:WindowsDocker] [MinimumKubeletVe
 		ginkgo.By("Waiting for the Linux pod to run")
 		nginxPod = e2epod.NewPodClient(f).CreateSync(ctx, nginxPod)
 
-		ginkgo.By("checking connectivity to 8.8.8.8 53 (google.com) from Linux")
-		assertConsistentConnectivity(ctx, f, nginxPod.ObjectMeta.Name, "linux", linuxCheck("8.8.8.8", 53), externalMaxTries)
+		ginkgo.By("checking connectivity to 8.8.8.8 853 (google.com) from Linux")
+		assertConsistentConnectivity(ctx, f, nginxPod.ObjectMeta.Name, "linux", linuxCheck("8.8.8.8", 853), externalMaxTries)
 
 		ginkgo.By("checking connectivity to www.google.com from Windows")
 		assertConsistentConnectivity(ctx, f, agnPod.ObjectMeta.Name, "windows", windowsCheck("www.google.com"), externalMaxTries)
